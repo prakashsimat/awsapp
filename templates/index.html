@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | QGAN User Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        .btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to QGAN User Dashboard</h1>
+        <p>This is the home page of the QGAN User Dashboard application.</p>
+        <p>Use the links below to navigate to the various sections of the application:</p>
+
+        <a class="btn btn-primary" href="{{ url_for('login') }}">Login</a>
+        <a class="btn btn-primary" href="{{ url_for('dashboard') }}">View Dashboard</a>
+        <a class="btn btn-primary" href="/dash/">View Interactive Dashboard</a>
+
+        <hr>
+        <footer>
+            <p>&copy; 2024 QGAN User Dashboard</p>
+        </footer>
+    </div>
+
+    <!-- Optional: Add jQuery and Bootstrap JS if needed -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaYNbcYIb8z7Y3aFmo5lg6fFd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-pjaaA8dDz/En2pgz+G4Ck3Rr74R9pglepy9aIyB4yYdijyX45F53BREhJoHPMyzK" crossorigin="anonymous"></script>
+</body>
+</html>

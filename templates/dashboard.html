@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QGAN User Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .suspicious {
+            background-color: #ffdddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Dashboard</h1>
+        <p>Click the button below to view the interactive user properties dashboard.</p>
+        <a class="btn btn-primary" href="/dashboard">View Dashboard</a>
+        
+        <h2>QGAN Dashboard</h2>
+        <form method="post" action="{{ url_for('predict') }}">
+            <button type="submit" class="btn btn-primary">Predict Suspicious Users</button>
+        </form>
+        <h2>User Activity Data</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>UserID</th>
+                    <th>CPU Usage</th>
+                    <th>Memory Usage</th>
+                    <th>Network Usage</th>
+                    <th>Login Time</th>
+                    <th>File Access Count</th>
+                    <th>Suspicious</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr class="{% if row.Suspicious == 1 %}suspicious{% endif %}">
+                    <td>{{ row.UserID }}</td>
+                    <td>{{ row.CPU_Usage }}</td>
+                    <td>{{ row.Memory_Usage }}</td>
+                    <td>{{ row.Network_Usage }}</td>
+                    <td>{{ row.Login_Time }}</td>
+                    <td>{{ row.File_Access_Count }}</td>
+                    <td>{{ row.Suspicious }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if suspicious_users %}
+        <h2>Suspicious Users</h2>
+        <ul>
+            {% for user in suspicious_users %}
+            <li>{{ user.UserID }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+
+    <!-- Optional: Add jQuery and Bootstrap JS if needed -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGaYNbcYIb8z7Y3aFmo5lg6fFd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-pjaaA8dDz/En2pgz+G4Ck3Rr74R9pglepy9aIyB4yYdijyX45F53BREhJoHPMyzK" crossorigin="anonymous"></script>
+</body>
+</html>

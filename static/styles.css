@@ -1,0 +1,61 @@
+/* Add some basic styling to make it visually appealing */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.login-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.logo-large {
+    width: 100px;
+    margin-bottom: 20px;
+}
+h2 {
+    margin-bottom: 10px;
+}
+.tagline {
+    color: #666;
+    margin-bottom: 20px;
+}
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.options-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+.forgot-password-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+.login-button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+.login-button:hover {
+    background-color: #0056b3;
+}
